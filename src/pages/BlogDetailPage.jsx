@@ -1,7 +1,12 @@
+import MainLayout from "../components/layout/MainLayout";
+import PageHeader from "../components/layout/PageHeader";
+import BlogPostSection from "../components/sections/blog/BlogPostSection";
+
 export default function BlogDetailPage() {
   return (
-    <div className="p-6 text-white">
-      <h1 className="text-2xl">Blog Detail</h1>
-    </div>
+    <MainLayout>
+      <PageHeader title="BLOG ARKIV" breadcrumb="Forside / Blog arkiv / Blog" />
+      <BlogPostSection />
+    </MainLayout>
   );
 }

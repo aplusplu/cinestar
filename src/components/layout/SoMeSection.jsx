@@ -1,23 +1,46 @@
 export default function SoMeSection() {
   return (
-    <section className="py-16 text-center border-t border-gray-800">
-      <h2 className="text-xl mb-4">
-        HAR DU EN IDÉ I TANKERNE?
-        <br />
-        LAD OS STARTE DIT PROJEKT SAMMEN
-      </h2>
+    <section className="bg-black px-5 py-24 text-center text-white">
+      <div className="mx-auto max-w-[390px]">
+        <h2
+          className="mb-8 text-[38px] leading-[1.02]"
+          style={{ fontFamily: '"Cormorant Garamond", serif' }}
+        >
+          Har du en idé i
+          <br />
+          tankerne?
+          <br />
+          Lad os starte dit
+          <br />
+          projekt sammen
+        </h2>
 
-      <p className="text-orange-500 mt-4">
-        Cinestar Studio <br />
-        +45 12 34 56 78 <br />
-        cinestar@production.dk
-      </p>
+        <p className="mb-1 text-[20px] text-[#F07232]">Cinestar Studio</p>
+        <p className="mb-1 text-[20px] text-[#F07232]">+45 12 34 56 78</p>
+        <p className="mb-10 text-[20px] text-[#F07232]">
+          cinestar@production.dk
+        </p>
 
-      <div className="mt-6 space-x-4 text-sm">
-        <span>FACEBOOK</span>
-        <span>TWITTER</span>
-        <span>LINKEDIN</span>
-        <span>INSTAGRAM</span>
+        <div
+          className="grid grid-cols-2 gap-x-6 gap-y-5 text-[20px] uppercase"
+          style={{ fontFamily: '"Cormorant Garamond", serif' }}
+        >
+          <a href="#" className="hover:text-[#F07232]">
+            Facebook
+          </a>
+          <a href="#" className="hover:text-[#F07232]">
+            Twitter
+          </a>
+          <a href="#" className="hover:text-[#F07232]">
+            Linkedin
+          </a>
+          <a href="#" className="hover:text-[#F07232]">
+            Instagram
+          </a>
+          <a href="#" className="col-span-2 hover:text-[#F07232]">
+            Youtube
+          </a>
+        </div>
       </div>
     </section>
   );

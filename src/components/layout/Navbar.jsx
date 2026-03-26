@@ -1,28 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { navigationLinks } from "../../data/navigation";
 import BurgerMenu from "./BurgerMenu";
+import logo from "../../assets/images/cinestar/logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <nav className="flex items-center justify-between px-6 py-4 bg-black border-b border-gray-800">
-        {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2">
-          <img src="/src/assets/images/logo.png" alt="logo" className="h-6" />
-          <span className="text-xl font-bold tracking-wider">CINESTAR</span>
-        </Link>
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black">
+        <div className="mx-auto flex h-[87px] max-w-[390px] items-center justify-between px-5">
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logo} alt="Cinestar logo" className="h-7 w-auto" />
+          </Link>
 
-        {/* BURGER */}
-        <button onClick={() => setOpen(true)}>
-          <div className="space-y-1">
-            <span className="block w-6 h-[2px] bg-orange-500"></span>
-            <span className="block w-6 h-[2px] bg-orange-500"></span>
-            <span className="block w-6 h-[2px] bg-orange-500"></span>
-          </div>
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Åbn menu"
+            className="flex flex-col gap-1.5"
+          >
+            <span className="block h-[2px] w-7 bg-[#F07232]" />
+            <span className="block h-[2px] w-7 bg-[#F07232]" />
+            <span className="block h-[2px] w-7 bg-[#F07232]" />
+          </button>
+        </div>
       </nav>
 
       <BurgerMenu open={open} setOpen={setOpen} />
