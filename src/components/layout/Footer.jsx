@@ -8,7 +8,7 @@ export default function Footer() {
       <SoMeSection />
 
       <footer
-        className="border-t border-white/10 bg-black bg-cover bg-center bg-no-repeat px-3 py-7 text-white"
+        className="mt-0 border-0 bg-black bg-cover bg-center bg-no-repeat px-3 py-7 text-white"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)), url(${liquifer})`,
         }}

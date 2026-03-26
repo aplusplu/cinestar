@@ -1,16 +1,27 @@
 import { Link, useLocation } from "react-router-dom";
 
-const links = [
-  { label: "Forside", to: "/" },
-  { label: "Blog", to: "/blog" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Kontakt", to: "/contact" },
-];
-
-export default function BurgerMenu({ open, setOpen }) {
+export default function BurgerMenu({ open, setOpen, authState, onLogout }) {
   const location = useLocation();
 
   if (!open) return null;
+
+  const publicLinks = [
+    { label: "Forside", to: "/" },
+    { label: "Blog", to: "/blog" },
+    { label: "FAQ", to: "/faq" },
+    { label: "Kontakt", to: "/contact" },
+  ];
+
+  const accountLinks = !authState?.isLoggedIn
+    ? [{ label: "Login", to: "/admin/login" }]
+    : authState.role === "admin"
+      ? [
+          { label: "Admin", to: "/admin" },
+          { label: "Profil", to: "/profile" },
+        ]
+      : [{ label: "Profil", to: "/profile" }];
+
+  const links = [...publicLinks, ...accountLinks];
 
   return (
     <div className="fixed inset-0 z-[60] bg-black">
@@ -24,7 +35,7 @@ export default function BurgerMenu({ open, setOpen }) {
           ×
         </button>
 
-        <div className="mt-2 w-[156px] border border-[#00A3FF] p-4">
+        <div className="mt-2 w-[190px] border border-[#00A3FF] p-4">
           <div className="space-y-4">
             {links.map((link) => {
               const active = location.pathname === link.to;
@@ -43,6 +54,20 @@ export default function BurgerMenu({ open, setOpen }) {
                 </Link>
               );
             })}
+
+            {authState?.isLoggedIn && (
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  onLogout();
+                }}
+                className="block text-[24px] uppercase text-white"
+                style={{ fontFamily: '"Quicksand", sans-serif' }}
+              >
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </div>
